@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: antiquewhite;
+
+  &__title {
+    font-size: 32px;
+    font-weight: 500;
+    color: rgba(31, 98, 149, 1);
+  }
+}
