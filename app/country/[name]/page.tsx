@@ -84,6 +84,7 @@ const page = async ({ params }: { params: { name: string } }) => {
         </div>
         <div className={styles.country__flags}>
           <Image
+            className={styles.country__flag}
             src={country.flags.svg}
             alt={country.flags.alt ? country.flags.alt : country.name.common}
             width={210}
