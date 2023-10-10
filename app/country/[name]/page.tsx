@@ -1,4 +1,8 @@
-import { printLanguages } from "@/app/functions/functions";
+import {
+  formatArea,
+  formatPopulation,
+  printLanguages,
+} from "@/app/functions/functions";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Page.module.scss";
@@ -54,12 +58,15 @@ const page = async ({ params }: { params: { name: string } }) => {
           <p className={styles.country__info}>
             Population:{" "}
             <span className={styles.country__info_name}>
-              {country.population}
+              {formatPopulation(country.population)}
             </span>
           </p>
           <p className={styles.country__info}>
             Area:{" "}
-            <span className={styles.country__info_name}>{country.area}</span>
+            <span className={styles.country__info_name}>
+              {formatArea(country.area)}
+            </span>
+            km²
           </p>
           <p className={styles.country__info}>
             Currency: посмотреть как приходит и выводить например Australian

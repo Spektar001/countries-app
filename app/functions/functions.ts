@@ -9,3 +9,13 @@ export const printLanguages = (obj: Languages): string => {
   }
   return result;
 };
+
+export const formatArea = (area: number): string => {
+  const areaInKm2 = area.toLocaleString("en-US");
+  return areaInKm2;
+};
+
+export const formatPopulation = (population: number): string => {
+  const populationInEnglish = population.toLocaleString("en-US");
+  return populationInEnglish;
+};
