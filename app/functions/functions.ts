@@ -1,5 +1,5 @@
-export const printLanguages = (obj: Object) => {
-  let values = Object.values(obj);
+export const printLanguages = (obj: Languages): string => {
+  let values: string[] = Object.values(obj);
   let result = "";
   for (let i = 0; i < values.length; i++) {
     result += values[i];
