@@ -39,20 +39,22 @@ const page = async ({ params }: { params: { name: string } }) => {
           </p>
           <p className={styles.country__info}>
             Capital city:{" "}
-            <span className={styles.country__info_name}>{country.capital}</span>
+            <span className={styles.country__info_name}>
+              {country.capital ? country.capital : "—"}
+            </span>
           </p>
           <p className={styles.country__info}>
             Region:{" "}
             <span className={styles.country__info_name}>
               {country.region
-                ? `${country.region}(${country.subregion})`
+                ? `${country.region}(${country.subregion || "—"})`
                 : country.subregion}
             </span>
           </p>
           <p className={styles.country__info}>
             Official languages:{" "}
             <span className={styles.country__info_name}>
-              {printLanguages(country.languages)}
+              {country.languages ? printLanguages(country.languages) : "—"}
             </span>
           </p>
           <p className={styles.country__info}>
