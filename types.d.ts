@@ -29,7 +29,12 @@ interface Fra {
 }
 
 interface Currencies {
-  [key: string]: string;
+  [key: string]: Currency;
+}
+
+interface Currency {
+  name: string;
+  symbol: string;
 }
 
 interface Xpf {

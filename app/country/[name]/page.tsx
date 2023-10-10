@@ -1,5 +1,6 @@
 import {
   formatArea,
+  formatCurrencies,
   formatPopulation,
   printLanguages,
 } from "@/app/functions/functions";
@@ -71,8 +72,10 @@ const page = async ({ params }: { params: { name: string } }) => {
             km²
           </p>
           <p className={styles.country__info}>
-            Currency: посмотреть как приходит и выводить например Australian
-            dollar($)
+            Currency:{" "}
+            <span className={styles.country__info_name}>
+              {country.currencies ? formatCurrencies(country.currencies) : "—"}
+            </span>
           </p>
           <p className={styles.country__info}>
             Google Map: оформить ссылку
