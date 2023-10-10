@@ -1,3 +1,4 @@
+import { printLanguages } from "@/app/functions/functions";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Page.module.scss";
@@ -16,7 +17,7 @@ const page = async ({ params }: { params: { name: string } }) => {
   return (
     <div className={styles.country__page}>
       <div>
-        <Link href="/">Back</Link>
+        <Link href="/">{"<= Back"}</Link>
       </div>
       <div className={styles.country__layout}>
         <div className={styles.country__desc}>
@@ -39,16 +40,16 @@ const page = async ({ params }: { params: { name: string } }) => {
           <p className={styles.country__info}>
             Region:{" "}
             <span className={styles.country__info_name}>
-              {country.region ? country.region : country.subregion}
+              {country.region
+                ? `${country.region}(${country.subregion})`
+                : country.subregion}
             </span>
           </p>
           <p className={styles.country__info}>
-            Official languages: подумать насчет языков{" "}
-            {Object.values(country.languages).map((lang) => (
-              <span key={lang} className={styles.country__info_name}>
-                {lang},{" "}
-              </span>
-            ))}
+            Official languages:{" "}
+            <span className={styles.country__info_name}>
+              {printLanguages(country.languages)}
+            </span>
           </p>
           <p className={styles.country__info}>
             Population:{" "}
@@ -61,7 +62,8 @@ const page = async ({ params }: { params: { name: string } }) => {
             <span className={styles.country__info_name}>{country.area}</span>
           </p>
           <p className={styles.country__info}>
-            Currency: посмотреть валюту как приходит
+            Currency: посмотреть как приходит и выводить например Australian
+            dollar($)
           </p>
           <p className={styles.country__info}>
             Google Map: оформить ссылку
