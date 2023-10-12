@@ -1,0 +1,17 @@
+.country {
+
+  &__neighbor_title {
+    font-size: 26px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &__neighbor_countries {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}

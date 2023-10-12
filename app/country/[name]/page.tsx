@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Page.module.scss";
 import { Icon } from "@/app/components/Icon/Icon";
+import CountriesNeighboring from "@/app/components/CountriesNeighboring/CountriesNeighboring";
 
 const getCountryByName = async (name: string): Promise<Countries> => {
   const response = await fetch(
@@ -22,15 +23,15 @@ const page = async ({ params }: { params: { name: string } }) => {
 
   return (
     <div className={styles.country__page}>
-      <Link className={styles.country__button_back} href="/" scroll={false}>
-        <Icon
-          name="arrow-left-circle"
-          size={40}
-          strokeWidth={1}
-          color="#464646"
-        />
-      </Link>
       <div className={styles.country__layout_bg}>
+        <Link href="/" scroll={false}>
+          <Icon
+            name="arrow-left-circle"
+            size={40}
+            strokeWidth={1}
+            color="#464646"
+          />
+        </Link>
         <h2 className={styles.country__layout_title}>{country.name.common}</h2>
         <div className={styles.country__layout}>
           <div className={styles.country__desc}>
@@ -125,10 +126,8 @@ const page = async ({ params }: { params: { name: string } }) => {
             />
           </div>
         </div>
-      </div>
-      <div className={styles.country__neighbor_layout}>
-        <h2 className={styles.country__neighbor_title}>Neighbor countries:</h2>
-        <div className={styles.country__neighbor_countries}></div>
+        <span className={styles.country__line}></span>
+        <CountriesNeighboring countriesNeighbor={country.borders} />
       </div>
     </div>
   );
