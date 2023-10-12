@@ -48,14 +48,27 @@
     // box-shadow: 0px 0px 2px 0px rgba(34, 60, 80, 0.5);
   }
 
-  &__info {
+  &__category {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 3px;
     font-size: 18px;
   }
-  &__info_name {
+  &__cat_title {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  &__cat_text {
     font-size: 20px;
+  }
+
+  &__link_map {
+    text-decoration: underline;
+  }
+  &__link_map:hover {
+    text-decoration: none;
   }
 
   &__neighbor {

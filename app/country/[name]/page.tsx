@@ -22,7 +22,7 @@ const page = async ({ params }: { params: { name: string } }) => {
 
   return (
     <div className={styles.country__page}>
-      <Link className={styles.country__button_back} href="/">
+      <Link className={styles.country__button_back} href="/" scroll={false}>
         <Icon
           name="arrow-left-circle"
           size={40}
@@ -34,57 +34,80 @@ const page = async ({ params }: { params: { name: string } }) => {
         <h2 className={styles.country__layout_title}>{country.name.common}</h2>
         <div className={styles.country__layout}>
           <div className={styles.country__desc}>
-            <p className={styles.country__info}>
-              <Icon name="landmark" color="#464646" size={20} />
-              Capital city:
-              <span className={styles.country__info_name}>
+            <div className={styles.country__category}>
+              <p className={styles.country__cat_title}>
+                <Icon name="landmark" color="#464646" size={20} />
+                Capital city:
+              </p>
+              <span className={styles.country__cat_text}>
                 {country.capital ? country.capital : "—"}
               </span>
-            </p>
-            <p className={styles.country__info}>
-              <Icon name="globe" color="#464646" size={20} />
-              Region:
-              <span className={styles.country__info_name}>
+            </div>
+            <div className={styles.country__category}>
+              <p className={styles.country__cat_title}>
+                <Icon name="globe" color="#464646" size={20} />
+                Region:
+              </p>
+              <span className={styles.country__cat_text}>
                 {country.region
                   ? `${country.region}(${country.subregion || "—"})`
                   : country.subregion}
               </span>
-            </p>
-            <p className={styles.country__info}>
-              <Icon name="languages" color="#464646" size={20} />
-              Official languages:
-              <span className={styles.country__info_name}>
+            </div>
+            <div className={styles.country__category}>
+              <p className={styles.country__cat_title}>
+                <Icon name="languages" color="#464646" size={20} />
+                Official languages:
+              </p>
+              <span className={styles.country__cat_text}>
                 {country.languages ? printLanguages(country.languages) : "—"}
               </span>
-            </p>
-            <p className={styles.country__info}>
-              <Icon name="person-standing" color="#464646" size={20} />
-              Population:
-              <span className={styles.country__info_name}>
+            </div>
+            <div className={styles.country__category}>
+              <p className={styles.country__cat_title}>
+                <Icon name="person-standing" color="#464646" size={20} />
+                Population:
+              </p>
+              <span className={styles.country__cat_text}>
                 {formatPopulation(country.population)}
               </span>
-            </p>
-            <p className={styles.country__info}>
-              <Icon name="land-plot" color="#464646" size={20} />
-              Area:
-              <span className={styles.country__info_name}>
+            </div>
+            <div className={styles.country__category}>
+              <p className={styles.country__cat_title}>
+                <Icon name="land-plot" color="#464646" size={20} />
+                Area:
+              </p>
+              <span className={styles.country__cat_text}>
                 {formatArea(country.area)}
               </span>
               km²
-            </p>
-            <p className={styles.country__info}>
-              <Icon name="banknote" color="#464646" size={20} />
-              Currency:
-              <span className={styles.country__info_name}>
+            </div>
+            <div className={styles.country__category}>
+              <p className={styles.country__cat_title}>
+                <Icon name="banknote" color="#464646" size={20} />
+                Currency:
+              </p>
+              <span className={styles.country__cat_text}>
                 {country.currencies
                   ? formatCurrencies(country.currencies)
                   : "—"}
               </span>
-            </p>
-            <p className={styles.country__info}>
-              <Icon name="map-pin" color="#464646" size={20} />
-              Map: <Link href={country.maps.googleMaps}>Google Map</Link>
-            </p>
+            </div>
+            <div className={styles.country__category}>
+              <p className={styles.country__cat_title}>
+                <Icon name="map-pin" color="#464646" size={20} />
+                Map:{" "}
+              </p>
+              <span className={styles.country__cat_text}>
+                <a
+                  className={styles.country__link_map}
+                  target="_blank"
+                  href={country.maps.googleMaps}
+                >
+                  Google Map
+                </a>
+              </span>
+            </div>
           </div>
           <div className={styles.country__flags}>
             <Image
