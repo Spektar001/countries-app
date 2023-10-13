@@ -24,7 +24,7 @@ const page = async ({ params }: { params: { name: string } }) => {
   return (
     <div className={styles.country__page}>
       <div className={styles.country__layout_bg}>
-        <Link href="/" scroll={false}>
+        <Link href="/">
           <Icon
             name="arrow-left-circle"
             size={40}
