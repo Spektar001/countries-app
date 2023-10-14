@@ -1,11 +1,12 @@
 .header {
   display: flex;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: #d6e6f2;
+  height: 100px;
 
   &__title {
     font-size: 32px;
-    font-weight: 500;
-    color: rgba(31, 98, 149, 1);
+    font-weight: 300;
+    color: #223c50;
   }
 }

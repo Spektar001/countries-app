@@ -1,3 +1,17 @@
 .footer {
-  background-color: bisque;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  background-color: #769FCD;
+
+  &__title {
+    font-size: 20px;
+    font-weight: 300;
+    color: #223c50;
+  }
+
+  &__link {
+    font-weight: 400;
+  }
 }
