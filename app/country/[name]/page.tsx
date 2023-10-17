@@ -7,8 +7,9 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Page.module.scss";
-import { Icon } from "@/app/components/Icon/Icon";
+import { Icon } from "@/app/components/LucideIcon/Icon";
 import CountriesNeighboring from "@/app/components/CountriesNeighboring/CountriesNeighboring";
+import CountryCategory from "@/app/components/CountryCategory/CountryCategory";
 
 const getCountryByName = async (name: string): Promise<CountryCard> => {
   const response = await fetch(
@@ -35,80 +36,35 @@ const page = async ({ params }: { params: { name: string } }) => {
         <h2 className={styles.country__layout_title}>{country.name.common}</h2>
         <div className={styles.country__layout}>
           <div className={styles.country__desc}>
-            <div className={styles.country__category}>
-              <p className={styles.country__cat_title}>
-                <Icon name="landmark" color="#464646" size={20} />
-                Capital city:
-              </p>
-              <span className={styles.country__cat_text}>
-                {country.capital ? country.capital : "—"}
-              </span>
-            </div>
-            <div className={styles.country__category}>
-              <p className={styles.country__cat_title}>
-                <Icon name="globe" color="#464646" size={20} />
-                Region:
-              </p>
-              <span className={styles.country__cat_text}>
-                {country.region
-                  ? `${country.region}(${country.subregion || "—"})`
-                  : country.subregion}
-              </span>
-            </div>
-            <div className={styles.country__category}>
-              <p className={styles.country__cat_title}>
-                <Icon name="languages" color="#464646" size={20} />
-                Official languages:
-              </p>
-              <span className={styles.country__cat_text}>
-                {country.languages ? printLanguages(country.languages) : "—"}
-              </span>
-            </div>
-            <div className={styles.country__category}>
-              <p className={styles.country__cat_title}>
-                <Icon name="person-standing" color="#464646" size={20} />
-                Population:
-              </p>
-              <span className={styles.country__cat_text}>
-                {formatPopulation(country.population)}
-              </span>
-            </div>
-            <div className={styles.country__category}>
-              <p className={styles.country__cat_title}>
-                <Icon name="land-plot" color="#464646" size={20} />
-                Area:
-              </p>
-              <span className={styles.country__cat_text}>
-                {formatArea(country.area)}
-              </span>
-              km²
-            </div>
-            <div className={styles.country__category}>
-              <p className={styles.country__cat_title}>
-                <Icon name="banknote" color="#464646" size={20} />
-                Currency:
-              </p>
-              <span className={styles.country__cat_text}>
-                {country.currencies
-                  ? formatCurrencies(country.currencies)
-                  : "—"}
-              </span>
-            </div>
-            <div className={styles.country__category}>
-              <p className={styles.country__cat_title}>
-                <Icon name="map-pin" color="#464646" size={20} />
-                Map:{" "}
-              </p>
-              <span className={styles.country__cat_text}>
-                <a
-                  className={styles.country__link_map}
-                  target="_blank"
-                  href={country.maps.googleMaps}
-                >
-                  Google Map
-                </a>
-              </span>
-            </div>
+            <CountryCategory title="Capital city:" iconName="landmark">
+              {country.capital ? country.capital : "—"}
+            </CountryCategory>
+            <CountryCategory title="Region:" iconName="globe">
+              {country.region
+                ? `${country.region}(${country.subregion || "—"})`
+                : country.subregion}
+            </CountryCategory>
+            <CountryCategory title="Official languages:" iconName="languages">
+              {country.languages ? printLanguages(country.languages) : "—"}
+            </CountryCategory>
+            <CountryCategory title="Population:" iconName="person-standing">
+              {formatPopulation(country.population)}
+            </CountryCategory>
+            <CountryCategory title="Area:" iconName="land-plot">
+              {formatArea(country.area)}km²
+            </CountryCategory>
+            <CountryCategory title="Currency:" iconName="banknote">
+              {country.currencies ? formatCurrencies(country.currencies) : "—"}
+            </CountryCategory>
+            <CountryCategory title="Map:" iconName="map-pin">
+              <a
+                className={styles.country__link_map}
+                target="_blank"
+                href={country.maps.googleMaps}
+              >
+                Google Map
+              </a>
+            </CountryCategory>
           </div>
           <div className={styles.country__flags}>
             <Image
