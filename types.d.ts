@@ -18,6 +18,26 @@ interface Countries {
   coatOfArms: CoatOfArms;
 }
 
+interface CountryItem {
+  name: Name;
+  flags: Flags;
+}
+
+interface CountryCard {
+  name: Name;
+  currencies: Currencies;
+  capital: string[];
+  region: string;
+  subregion: string;
+  languages: Languages;
+  borders?: string[];
+  area: number;
+  maps: Maps;
+  population: number;
+  flags: Flags;
+  coatOfArms: CoatOfArms;
+}
+
 interface Name {
   common: string;
   official: string;

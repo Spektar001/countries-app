@@ -1,5 +1,5 @@
+import styles from "./Countries.module.scss";
 import CountryItem from "./CountryItem/CountryItem";
-import styles from './Countries.module.scss';
 
 const getAllCountries = async (): Promise<Countries[]> => {
   const response = await fetch("https://restcountries.com/v3.1/all");

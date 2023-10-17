@@ -10,7 +10,7 @@ import styles from "./Page.module.scss";
 import { Icon } from "@/app/components/Icon/Icon";
 import CountriesNeighboring from "@/app/components/CountriesNeighboring/CountriesNeighboring";
 
-const getCountryByName = async (name: string): Promise<Countries> => {
+const getCountryByName = async (name: string): Promise<CountryCard> => {
   const response = await fetch(
     `https://restcountries.com/v3.1/name/${name}?fullText=true`
   );

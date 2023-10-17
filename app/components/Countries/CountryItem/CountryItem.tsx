@@ -3,8 +3,9 @@ import Link from "next/link";
 import styles from "./CountryItem.module.scss";
 
 type CountryProps = {
-  country: Countries;
+  country: CountryItem;
 };
+
 const CountryItem = ({ country }: CountryProps) => {
   return (
     <Link href={`/country/${country.name.common}`}>

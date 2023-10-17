@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./CountryNeighborCard.module.scss";
+import styles from "./CountryNeighborItem.module.scss";
 
 type CountryNeighborProps = {
-  country: Countries;
+  country: CountryItem;
 };
+
 const CountryNeighborCard = ({ country }: CountryNeighborProps) => {
   return (
     <Link href={`/country/${country.name.common}`}>

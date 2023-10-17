@@ -1,5 +1,5 @@
-import CountryNeighborCard from "./CountryNeighborCard/CountryNeighborCard";
 import styles from "./CountriesNeighboring.module.scss";
+import CountryNeighborCard from "./CountryNeighborItem/CountryNeighborItem";
 
 type CountriesNeighboringProps = {
   countriesNeighbor?: string[];
